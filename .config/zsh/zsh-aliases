@@ -1,0 +1,45 @@
+# Changing "ls" to "exa"
+alias ls='exa -l --color=always --group-directories-first'
+alias la='exa -a --color=always --group-directories-first'
+alias ll='exa -al --color=always --group-directories-first'
+alias lt='exa -aT --color=always --group-directories-first'
+alias l.='exa -a | egrep "^\."'
+
+# ..
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# ls -a after cd
+function chpwd() {
+    emulate -L zsh
+    la
+}
+
+# clear & ls -a
+alias c="clear && la"
+
+# Colorize grep output
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Vim
+alias vi='vim'
+alias n='nvim'
+
+# git
+alias gau='git add -u'
+alias gaa='git add .'
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit -m'
+alias gfom='git fetch origin master'
+alias gdom='git diff master origin/master'
+alias gl='git pull'
+alias gp='git push'
+alias gg='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
+alias ggs='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
+
+# system
+alias sdn="shutdown now"

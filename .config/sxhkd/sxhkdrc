@@ -1,0 +1,19 @@
+# browser
+super + w
+    firefox
+
+# dmenu
+super + d
+    dmenu_run
+
+# rofi drun
+super + alt + d
+    rofi -modi drun -show drun
+
+# i3lock-color
+super + n
+    i3lock-color
+
+# pavucontrol
+super + p
+    pavucontrol

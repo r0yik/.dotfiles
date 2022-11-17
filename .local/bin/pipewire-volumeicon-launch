@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sleep 3s
+pactl set-sink-mute @DEFAULT_SINK@ 0
+sleep 5s
+volumeicon &

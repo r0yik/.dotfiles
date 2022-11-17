@@ -1,0 +1,43 @@
+$if Bash
+    # Use Vi mode
+    set editing-mode vi
+
+    # Show all completions as soon as press tab
+    set show-all-if-ambiguous on
+
+    # Ignore case
+    set completion-ignore-case on
+
+    # first display the common prefix, then cycle through the options when hitting TAB
+    set menu-complete-display-prefix on
+
+    ###########################################################
+    # Keymaps for command mode
+    set keymap vi-command
+
+    # Insert the arguments from the last command
+    "p": "i !!*\r"
+
+    ###########################################################
+    # Keymaps for insert mode
+    set keymap vi-insert
+
+    # Pressing tab will list all completions & select the first one. Pressing it 
+    # again will cycle through available completions.
+    TAB: menu-complete
+    # Shift-TAB cycles completions backward
+    "\e[Z": menu-complete-backward
+
+    # Needed because binding 'p' in command mode above wipes its insert mode
+    # function, too. This fixes that, and will insert 'p' when you type 'p'.
+    "p": self-insert
+
+    # Show current mode
+    set show-mode-in-prompt on
+    set vi-ins-mode-string \1\e[34;1m\2[i] \1\e[0m\2
+    set vi-cmd-mode-string \1\e[31;1m\2[n] \1\e[0m\2
+
+    ###########################################################
+    # Magic space
+    Space: magic-space
+$endif

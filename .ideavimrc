@@ -1,0 +1,99 @@
+" leader
+let mapleader = " "
+
+set backspace=eol,start,indent
+
+" plugins
+set NERDTree
+set commentary
+set surround
+
+" history
+set history=1000
+
+" bell
+set visualbell
+set noerrorbells
+
+" UI
+set number
+" set relativenumber
+set so=8
+set showmode
+
+" search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" clipboard 
+set clipboard=unnamed,unnamedplus
+set clipboard+=ideaput
+
+" idea
+set ideajoin
+set ideastatusicon=gray
+
+" insert to cmd
+imap jk <Esc>
+imap kj <Esc>
+
+" window navigation
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+map <C-K> <C-W>k
+map <C-J> <C-W>j
+
+" closing/opening tabs
+nmap <leader>x :action CloseContent<CR>
+nmap <leader>X :action ReopenClosedTab<CR>
+
+" clear the search buffer when hitting return
+nmap <space><CR> :nohlsearch<CR>
+
+" splitting windows
+nmap <Leader>\ :vsplit<CR>
+nmap <Leader>- :split<CR>
+
+" toggle panels
+nmap <Leader>w :action HideAllWindows<CR>
+
+" find
+nmap <Leader>F :action Find<CR>
+nmap <Leader>fp :action FindInPath<CR>
+
+" file search
+nmap <Leader>gf :action GotoFile<CR>
+
+" navigation, definition, declaration
+nmap <Leader>su :action ShowUsages<CR>
+nmap <Leader>gd :action GotoDeclaration<CR>
+nmap <Leader>gi :action GotoImplementation<CR>
+nmap <Leader>qi :action QuickImplementations<CR>
+nmap <Leader>td :action GotoTypeDeclaration<CR>
+nmap <Leader>gs :action GotoSuperMethod<CR>
+
+" open terminal
+nmap <Leader>t :action ActivateTerminalToolWindow<CR>
+
+" copying to/from System Clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>P "+P
+
+" NERDTree
+map <leader>nt :NERDTree<CR>
+map <leader>nf :NERDTreeFind<CR>
+
+" navigation
+nmap <leader>h :action Back<CR>
+nmap <leader>l :action Forward<CR>
+
+" errors
+nmap <leader>e :action GotoNextError<CR>
+nmap <leader>E :action GotoPreviousError<CR>
+
+" debug
+nmap <leader>D :action Debug<CR>
+nmap <leader>R :action Run<CR>

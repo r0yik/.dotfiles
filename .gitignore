@@ -1,0 +1,8 @@
+.config/nvim/plugin/packer_compiled.lua
+.config/zsh/plugins/
+.config/zsh/.zcompdump
+.xmonad/build-*/
+.xmonad/xmonad-*
+.xmonad/xmonad.errors
+.xmonad/xpm
+.config/qtile/__pycache__/

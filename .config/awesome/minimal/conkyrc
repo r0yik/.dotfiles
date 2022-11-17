@@ -1,0 +1,99 @@
+conky.config = {
+    alignment = 'top_right',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'gray',
+    default_outline_color = '#0f0f0f',
+    default_shade_color = '#444',
+    color1 = '#f0f0f0',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'JetBrains Mono Medium:size=9',
+    gap_x = 16,
+    gap_y = 35,
+    minimum_height = 250,
+    minimum_width = 300,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_colour = '#2a2a3b',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_type = 'desktop',
+    own_window_hints ='undecorated,sticky,skip_taskbar,skip_pager,below',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+}
+
+conky.text = [[
+${#0f13cf}${font FiraCode Nerd Font:size=20} ${color1}${font} ${voffset -2}${goto 42}GNU/Linux $hr ${color}
+${color1}${goto 42}OS      : ${color}${execi 86400 cat `ls -atr /etc/*-release | tail -2` | grep "PRETTY_NAME" | cut -d= -f2 |  sed 's/"//g'}
+${color1}${goto 42}Kernel  : ${color}$kernel on $machine
+${color1}${goto 42}Uptime  : ${color}$uptime
+${color1}${goto 42}Pkgs    : ${color}${execi 3600 pacman -Qs | wc -l}
+${color1}${goto 42}Updates : ${color}${execi 3600 checkupdates | wc -l}
+
+${#b5a846}${font FiraCode Nerd Font:size=20} ${color1}${font} ${voffset -2}${goto 42}Core $hr${color}
+${color1}${goto 42}Total Usage${color}${alignr}${cpu cpu0}%
+${alignr}${voffset 3}${cpugraph cpu0 44,340 f57900 fcaf3e} 
+${color1}${goto 42}Core 1 : ${color}${freq_g 1}GHz ${alignr}${cpu cpu1}% ${cpubar cpu1 5,160}
+${color1}${goto 42}Core 2 : ${color}${freq_g 2}GHz ${alignr}${cpu cpu2}% ${cpubar cpu2 5,160}
+${color1}${goto 42}Core 3 : ${color}${freq_g 3}GHz ${alignr}${cpu cpu3}% ${cpubar cpu3 5,160}
+${color1}${goto 42}Core 4 : ${color}${freq_g 4}GHz ${alignr}${cpu cpu4}% ${cpubar cpu4 5,160}
+${color1}${goto 42}Core 5 : ${color}${freq_g 5}GHz ${alignr}${cpu cpu5}% ${cpubar cpu5 5,160}
+${color1}${goto 42}Core 6 : ${color}${freq_g 6}GHz ${alignr}${cpu cpu6}% ${cpubar cpu6 5,160}
+
+${#ff0000}${goto 42}${font FiraCode Nerd Font:size=18}${color1}${font}${voffset 1} Temp${color}
+${color1}${goto 42}${stippled_hr}${color}
+${color1}${goto 42}CPU : ${color}${exec sensors | awk '/CPU:/ { print $2 }'} ${alignr}${color1}GPU : ${color}
+
+${#4f737d}${font FiraCode Nerd Font:size=22}${color1}${font} ${voffset -2}${goto 42}Memory $hr${color}
+${color1}${goto 42}RAM : ${color}${exec free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i/iB/g} ${alignr}$memperc% ${membar 4,100}
+${color1}${goto 42}SWAP: ${color}$swap/$swapmax $alignr}$swapperc% ${swapbar 4,100}
+
+${#57d630}${font FiraCode Nerd Font:size=21}${color1}${font} ${voffset -2}${goto 42}Processes $hr${color}
+
+${color1}${goto 42}CPU usage${alignr}Memory Usage${color}
+${color1}${goto 42}${stippled_hr}${color}
+${goto 42}${top name 1} ${color}${top cpu 1}% ${alignr}${top_mem name 1}${top_mem mem_res 1}
+${goto 42}${top name 2} ${color}${top cpu 2}% ${alignr}${top_mem name 2}${top_mem mem_res 2}
+${goto 42}${top name 3} ${color}${top cpu 3}% ${alignr}${top_mem name 3}${top_mem mem_res 3}
+${goto 42}${top name 4} ${color}${top cpu 4}% ${alignr}${top_mem name 4}${top_mem mem_res 4}
+${goto 42}${top name 5} ${color}${top cpu 5}% ${alignr}${top_mem name 5}${top_mem mem_res 5}
+${goto 42}${top name 6} ${color}${top cpu 6}% ${alignr}${top_mem name 6}${top_mem mem_res 6}
+
+${color1}${goto 42}Processes: ${color}$processes ${color1}Running: ${color}$running_processes
+${#b37945}${font FiraCode Nerd Font:size=26}${color1}${font} ${voffset -6}${goto 42}Storage $hr${color}
+
+${color1}${goto 42}/ : ${color}${fs_used /}/${fs_size /} ${alignr}${fs_used_perc /}% ${fs_bar 4,160 /}
+${goto 42}
+${#209fc5}${font FiraCode Nerd Font:size=20} ${color1}${font} ${voffset -2}Wifi ${hr 1}${color}
+    ${if_up wlp3s0}
+    ${#1a68b0}${goto 42}${voffset 10}${font FiraCode Nerd Font:size=20} ${color}${font}${goto 32}${voffset -12}      SSID  : ${wireless_essid wlp3s0}
+    ${goto 32}      Signal: ${alignr}${wireless_link_qual_perc wlp3s0}% ${wireless_link_bar 5,160 wlp3s0}
+    ${#1ac642}${voffset 15}${goto 42}${font FiraCode Nerd Font:size=16}${color}${font}${goto 32}${voffset -11}      Up: ${upspeed wlp3s0}${font} ${alignr}${upspeedgraph wlp3s0 20,160 F57900 FCAF3E}
+    ${goto 32}${voffset -18}      Total: ${totalup wlp3s0}
+    ${#da4827}${voffset 15}${goto 42}${font FiraCode Nerd Font:size=16}${color}${font}${goto 32}${voffset -12}      Down: ${downspeed wlp3s0}${font} ${alignr}${downspeedgraph wlp3s0 20,160 F57900 FCAF3E}
+    ${goto 32}${voffset -18}      Total: ${totaldown wlp3s0}
+    ${#4f7d7f}${goto 42}${voffset 12}${font FiraCode Nerd Font:size=16}${color}${font}${goto 32}${voffset -2}      Local IP: ${alignr}${addr wlp3s0}
+
+    ${else}
+    ${voffset 4}${font conkycolors:size=14}qwe${font}${goto 32}Network Unavailable
+
+    ${endif}\
+]]
