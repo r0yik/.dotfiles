@@ -8,7 +8,7 @@ disabled = true
 # Replace the symbol in the prompt
 [character]
 success_symbol = "[](green)"
-vicmd_symbol = "[](bold green)"
+vicmd_symbol = "[](green)"
 error_symbol = "[✗](red)"
 
 [nodejs]
