@@ -107,6 +107,9 @@ hc keybind $Mod-l               cycle_all +1
 hc keybind $Mod-g               cycle_all -1
 hc keybind $Mod-u               jumpto urgent
 
+# scratchpad
+hc keybind $Mod-Shift-Return spawn ~/.config/herbstluftwm/scratchpad.sh
+
 # theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
