@@ -117,15 +117,15 @@ hc set frame_border_active_color '#666'
 hc set frame_border_normal_color '#0f0f0f77'
 hc set frame_bg_normal_color '#565656aa'
 hc set frame_bg_active_color '#0f0f0f77'
-hc set frame_border_width 2
+hc set frame_border_width 1
 hc set show_frame_decorations 'focused_if_multiple'
 hc set frame_bg_transparent on
 hc set frame_transparent_width 0
 hc set frame_gap 4
 
-hc attr theme.title_height 12
+hc attr theme.title_height 14
 hc attr theme.title_when one_tab
-hc attr theme.title_font 'JetBrains Mono Medium:pixelsize=9'  # example using Xft
+hc attr theme.title_font 'JetBrains Mono Medium:pixelsize=12'  # example using Xft
 # hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 hc attr theme.title_depth 3  # space below the title's baseline
 hc attr theme.active.color '#555'
@@ -143,7 +143,7 @@ hc attr theme.border_width 2
 hc attr theme.floating.border_width 2
 hc attr theme.floating.outer_width 2
 hc attr theme.floating.outer_color black
-hc attr theme.active.inner_color '#aa0000aa'
+hc attr theme.active.inner_color '#f0f0f0aa'
 hc attr theme.urgent.inner_color '#9A65B0'
 hc attr theme.normal.inner_color '#606060'
 # copy inner color to outer_color
@@ -154,7 +154,7 @@ done
 hc attr theme.tiling.outer_width 1
 hc attr theme.background_color '#141414'
 
-hc set window_gap 2
+hc set window_gap 0
 hc set frame_padding 2
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on

@@ -18,7 +18,7 @@ hc() { "${herbstclient_command[@]:-herbstclient}" "$@" ;}
 termwidth_percent=${WIDTH_PERC:-65}
 mrect=( $(hc monitor_rect -p "" ) )
 termwidth=$(( (${mrect[2]} * termwidth_percent) / 100 ))
-termheight=${HEIGHT_PIXELS:-800}
+termheight=${HEIGHT_PIXELS:-1000}
 
 rect=(
     $termwidth
@@ -52,7 +52,7 @@ update_geom() {
     hc move_monitor "$monitor" $geom
 }
 
-steps=${ANIMATION_STEPS:-3}
+steps=${ANIMATION_STEPS:-2}
 interval=${ANIMATION_INTERVAL:-0.01}
 
 animate() {
