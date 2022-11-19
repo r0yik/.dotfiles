@@ -12,7 +12,7 @@
 #
 # If a tag name is supplied, this is used instead of the scratchpad
 
-tag="${1:-sPad}"
+tag="${1:-scratchpad}"
 hc() { "${herbstclient_command[@]:-herbstclient}" "$@" ;}
 
 termwidth_percent=${WIDTH_PERC:-65}
