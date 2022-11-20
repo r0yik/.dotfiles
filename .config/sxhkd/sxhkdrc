@@ -11,9 +11,9 @@ super + alt + d
     rofi -modi drun -show drun
 
 # i3lock-color
-super + n
+super + alt + n
     i3lock-color
 
 # pavucontrol
-super + p
+super + alt + p
     pavucontrol
