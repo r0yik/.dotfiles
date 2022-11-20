@@ -50,7 +50,7 @@ ${color1}${goto 42}Updates : ${color}${execi 3600 checkupdates | wc -l}
 
 ${#b5a846}${font FiraCode Nerd Font:size=20} ${color1}${font} ${voffset -2}${goto 42}Core $hr${color}
 ${color1}${goto 42}Total Usage${color}${alignr}${cpu cpu0}%
-${alignr}${voffset 3}${cpugraph cpu0 44,334 f57900 fcaf3e} 
+${alignr}${voffset 3}${cpugraph cpu0 44,340 f57900 fcaf3e} 
 ${color1}${goto 42}Core 1 : ${color}${freq_g 1}GHz ${alignr}${cpu cpu1}% ${cpubar cpu1 5,160}
 ${color1}${goto 42}Core 2 : ${color}${freq_g 2}GHz ${alignr}${cpu cpu2}% ${cpubar cpu2 5,160}
 ${color1}${goto 42}Core 3 : ${color}${freq_g 3}GHz ${alignr}${cpu cpu3}% ${cpubar cpu3 5,160}
