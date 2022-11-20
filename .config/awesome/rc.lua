@@ -116,11 +116,37 @@ root.buttons(gears.table.join(
 ------------------------
 
 globalkeys = gears.table.join(
-    awful.key({ modkey, }, "s", hotkeys_popup.show_help,
+    awful.key({ modkey, ctrlkey }, "k", hotkeys_popup.show_help,
         { description = "show help", group = "awesome" }),
 
     -- Movement
-    awful.key({ modkey, ctrlkey }, "h", awful.tag.viewprev,
+    -- By-direction client focus
+    awful.key({ modkey }, "h",
+        function()
+            awful.client.focus.global_bydirection("left")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus left", group = "client"}),
+    awful.key({ modkey }, "s",
+        function()
+            awful.client.focus.global_bydirection("right")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus right", group = "client"}),
+    awful.key({ modkey }, "t",
+        function()
+            awful.client.focus.global_bydirection("down")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus down", group = "client"}),
+    awful.key({ modkey }, "n",
+        function()
+            awful.client.focus.global_bydirection("up")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus up", group = "client"}),
+
+    awful.key({ modkey, ctrlkey }, "g", awful.tag.viewprev,
         { description = "view previous", group = "tag" }),
     awful.key({ modkey, ctrlkey }, "l", awful.tag.viewnext,
         { description = "view next", group = "tag" }),
@@ -132,7 +158,7 @@ globalkeys = gears.table.join(
         end,
         { description = "focus next by index", group = "client" }
     ),
-    awful.key({ modkey, }, "h",
+    awful.key({ modkey, }, "g",
         function()
             awful.client.focus.byidx(-1)
         end,
@@ -158,9 +184,9 @@ globalkeys = gears.table.join(
         { description = "Focus right", group = "client" }),
 
     -- Layout manipulation
-    awful.key({ modkey, shiftkey }, "k", function() awful.client.swap.byidx(1) end,
+    awful.key({ modkey, shiftkey }, "l", function() awful.client.swap.byidx(1) end,
         { description = "swap with next client by index", group = "client" }),
-    awful.key({ modkey, shiftkey }, "j", function() awful.client.swap.byidx(-1) end,
+    awful.key({ modkey, shiftkey }, "g", function() awful.client.swap.byidx(-1) end,
         { description = "swap with previous client by index", group = "client" }),
     awful.key({ modkey, }, "Tab",
         function()
@@ -209,9 +235,9 @@ globalkeys = gears.table.join(
         { description = "quit awesome", group = "awesome" }),
 
     -- Window management
-    awful.key({ modkey, shiftkey }, "l", function() awful.tag.incmwfact(0.05) end,
+    awful.key({ modkey, shiftkey }, "s", function() awful.tag.incmwfact(0.02) end,
         { description = "increase master width factor", group = "layout" }),
-    awful.key({ modkey, shiftkey }, "h", function() awful.tag.incmwfact(-0.05) end,
+    awful.key({ modkey, shiftkey }, "h", function() awful.tag.incmwfact(-0.02) end,
         { description = "decrease master width factor", group = "layout" }),
     awful.key({ modkey, shiftkey }, "i", function() awful.tag.incnmaster(1, nil, true) end,
         { description = "increase the number of master clients", group = "layout" }),
