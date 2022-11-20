@@ -23,18 +23,18 @@ keys = [
 	Key([mod], "q", Function.kill_all_windows(), desc="Kill all windows"),
 
     # Window movement
-    Key([mod], "h", lazy.group.prev_window(), desc="Move focus to previous window"),
+    Key([mod], "g", lazy.group.prev_window(), desc="Move focus to previous window"),
     Key([mod], "l", lazy.group.next_window(), desc="Move focus to next window"),
 
     # Xmonad
     Key([mod, "shift"], "h", lazy.layout.shrink_main(), desc="Shrink main pane(Xmonad)"),
-	Key([mod, "shift"], "l", lazy.layout.grow_main(), desc="Grow main pane(Xmonad)"),
+	Key([mod, "shift"], "s", lazy.layout.grow_main(), desc="Grow main pane(Xmonad)"),
     Key([mod, "control"], "Return", lazy.layout.swap_main(), desc="Swap current window to main pane(Xmonad)"),
 
     # Stack
     Key([mod], "s", lazy.layout.next(), desc="Move focus to another stack(Stack)"),
-    Key([mod, "shift"], "n", lazy.layout.client_to_previous(), desc="Move window to previous stack side"),
-	Key([mod, "shift"], "t", lazy.layout.client_to_next(), desc="Move window to next stack side"),
+    Key([mod, "shift"], "g", lazy.layout.client_to_previous(), desc="Move window to previous stack side"),
+	Key([mod, "shift"], "l", lazy.layout.client_to_next(), desc="Move window to next stack side"),
 
     # Split/Unsplit (Stack)
     Key(
@@ -45,7 +45,7 @@ keys = [
     ),
 
     # Group movement
-    Key([mod, "control"], "h", lazy.screen.prev_group(), desc="Move to previous group"),
+    Key([mod, "control"], "g", lazy.screen.prev_group(), desc="Move to previous group"),
     Key([mod, "control"], "l", lazy.screen.next_group(), desc="Move to next group"),
 
     # Cycle layout
