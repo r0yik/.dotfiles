@@ -1,0 +1,4 @@
+#!/bin/bash
+
+timedate=$(date '+%b %d (%a) %I:%M%p ]')
+echo "$timedate"

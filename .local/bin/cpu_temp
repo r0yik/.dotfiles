@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cpu_temp=$(sensors | awk '/CPU:/ {print $2}')
+echo "$cpu_temp"

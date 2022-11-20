@@ -1,0 +1,4 @@
+#!/bin/bash
+
+disk=$(df -h | grep /dev/nvme0n1p3 | awk '{print $3"/"$2}')
+echo "$disk"
