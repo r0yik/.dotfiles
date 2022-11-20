@@ -6,7 +6,7 @@ DEFAULT='#3b4252dd'
 TEXT='#434c5edd'
 WRONG='#88c0d0dd'
 VERIFYING='#81a1c1dd'
-WRONG_TEXT='#dd0000dd'
+WRONG_TEXT='#aa0000dd'
 
 i3lock \
 --insidever-color=$CLEAR     \
