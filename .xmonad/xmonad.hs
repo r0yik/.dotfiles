@@ -50,7 +50,7 @@ myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
-myWorkspaces = ["1","2","3","4", "5", "6", "7", "8", "9"]
+myWorkspaces = ["i","ii","iii","iv", "v", "vi", "vii", "viii", "ix"]
 
 toggleFloat :: Window -> X ()
 toggleFloat w =
@@ -82,7 +82,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                   xK_l     ), windows W.focusDown)
 
     -- Move focus to the previous window
-    , ((modm,                   xK_h     ), windows W.focusUp  )
+    , ((modm,                   xK_g     ), windows W.focusUp  )
 
     -- Move focus to the master window
     , ((modm,                   xK_m     ), windows W.focusMaster  )
@@ -91,34 +91,34 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask,   xK_l     ), nextWS)
 
     -- Move to previous workspace
-    , ((modm .|. controlMask,   xK_h     ), prevWS)
+    , ((modm .|. controlMask,   xK_g     ), prevWS)
 
     -- find next empty workspace
-    , ((modm,                   xK_g), moveTo Next emptyWS)
+    , ((modm,                   xK_e     ), moveTo Next emptyWS)
 
     -- Move window to next empty workspace
-    , ((modm .|. shiftMask,     xK_g), shiftTo Next emptyWS)
+    , ((modm .|. shiftMask,     xK_e     ), shiftTo Next emptyWS)
 
     -- Swap the focused window and the master window
     , ((modm .|. controlMask,   xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
-    , ((modm .|. shiftMask,     xK_k     ), windows W.swapDown  )
+    , ((modm .|. shiftMask,     xK_l     ), windows W.swapDown  )
 
     -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask,     xK_j     ), windows W.swapUp    )
+    , ((modm .|. shiftMask,     xK_g     ), windows W.swapUp    )
 
     -- Shrink the master area
     , ((modm .|. shiftMask,     xK_h     ), sendMessage Shrink)
 
     -- Expand the master area
-    , ((modm .|. shiftMask,     xK_l     ), sendMessage Expand)
+    , ((modm .|. shiftMask,     xK_s     ), sendMessage Expand)
 
     -- Toggle floating
-    , ((modm,                   xK_space), withFocused toggleFloat)
+    , ((modm,                   xK_space ), withFocused toggleFloat)
 
     -- Push window back into tiling
-    , ((modm,                   xK_t ), withFocused $ windows . W.sink)
+    , ((modm,                   xK_t     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
     , ((modm .|. shiftMask,     xK_i     ), sendMessage (IncMasterN 1))
