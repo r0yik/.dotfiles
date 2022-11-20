@@ -62,7 +62,8 @@ hc keybind $Mod-v       split   right   0.5
 hc keybind $Mod-Shift-space split explode
 
 # tags
-tag_names=( {1..9} )
+# tag_names=( {1..9} )
+tag_names=("i" "ii" "iii" "iv" "v" "vi" "vii" "viii" "ix")
 tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -107,8 +108,11 @@ hc keybind $Mod-l               cycle_all +1
 hc keybind $Mod-g               cycle_all -1
 hc keybind $Mod-u               jumpto urgent
 
-# scratchpad
+# scratchpad script
 hc keybind $Mod-Control-Return spawn ~/.config/herbstluftwm/scratchpad.sh
+
+# switch to tabbed layout
+hc keybind $Mod-m spawn ~/.config/herbstluftwm/tabbed.sh
 
 # theme
 hc attr theme.tiling.reset 1
