@@ -111,8 +111,8 @@ hc keybind $Mod-u               jumpto urgent
 # scratchpad script
 hc keybind $Mod-Control-Return spawn ~/.config/herbstluftwm/scratchpad.sh
 
-# switch to tabbed layout
-hc keybind $Mod-m spawn ~/.config/herbstluftwm/tabbed.sh
+# toggle tabbed layout
+hc keybind $Mod-m spawn ~/.config/herbstluftwm/toggle-tabbed.sh
 
 # theme
 hc attr theme.tiling.reset 1
