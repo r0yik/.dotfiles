@@ -100,7 +100,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask,     xK_e     ), shiftTo Next emptyWS)
 
     -- Swap the focused window and the master window
-    , ((modm .|. controlMask,   xK_Return), windows W.swapMaster)
+    , ((modm .|. shiftMask,     xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask,     xK_l     ), windows W.swapDown  )

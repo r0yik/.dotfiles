@@ -29,7 +29,7 @@ keys = [
     # Xmonad
     Key([mod, "shift"], "h", lazy.layout.shrink_main(), desc="Shrink main pane(Xmonad)"),
 	Key([mod, "shift"], "s", lazy.layout.grow_main(), desc="Grow main pane(Xmonad)"),
-    Key([mod, "control"], "Return", lazy.layout.swap_main(), desc="Swap current window to main pane(Xmonad)"),
+    Key([mod, "shift"], "Return", lazy.layout.swap_main(), desc="Swap current window to main pane(Xmonad)"),
 
     # Stack
     Key([mod], "s", lazy.layout.next(), desc="Move focus to another stack(Stack)"),
