@@ -21,7 +21,7 @@ theme.bg_urgent   = "#ff0000"
 theme.bg_minimize = "#444444"
 theme.bg_systray  = theme.bg_normal
 
-theme.fg_normal   = "#aaaaaa"
+theme.fg_normal   = "#cccccc"
 theme.fg_focus    = "#f0f0f0"
 theme.fg_urgent   = "#ffffff"
 theme.fg_minimize = "#ffffff"
@@ -127,6 +127,27 @@ theme.titlebar_maximized_button_focus_active    = themes_path .. "default/titleb
 -- theme.layout_cornersw   = themes_path .. "default/layouts/cornersww.png"
 -- theme.layout_cornerse   = themes_path .. "default/layouts/cornersew.png"
 
+theme.layout_txt_tile       = " : TILE : "
+theme.layout_txt_tileleft   = " : TILELEFT : "
+theme.layout_txt_tilebottom = " : TILEBOTTOM : "
+theme.layout_txt_tiletop    = " : TILETOP : "
+theme.layout_txt_fairv      = " : FAIRV : "
+theme.layout_txt_fairh      = " : FAIRH : "
+theme.layout_txt_spiral     = " : SPIRAL : "
+theme.layout_txt_dwindle    = " : DWINDLE : "
+theme.layout_txt_max        = " : MAX : "
+theme.layout_txt_fullscreen = " : FULL : "
+theme.layout_txt_magnifier  = " : MAGNIFIER : "
+theme.layout_txt_floating   = " : FLOATING : "
+
+-- lain
+theme.layout_txt_termfair    = " : TERMFAIR : "
+theme.layout_txt_centerfair  = " : CENTERFAIR : "
+theme.layout_txt_cascade     = " : CASCADE : "
+theme.layout_txt_cascadetile = " : CASCADET : "
+theme.layout_txt_centerwork  = " : CENTERWORK : "
+theme.layout_txt_centerworkh = " : CENTERWORKH : "
+
 local taglist_buttons = gears.table.join(
     awful.button({}, 1, function(t) t:view_only() end),
     awful.button({}, 3, awful.tag.viewtoggle)
@@ -151,6 +172,12 @@ local tasklist_buttons = gears.table.join(
 
 local markup = lain.util.markup
 
+local function update_txt_layoutbox(s)
+    -- Writes a string representation of the current layout in a textbox widget
+    local txt_l = theme["layout_txt_" .. awful.layout.getname(awful.layout.get(s))] or ""
+    s.mytxtlayoutbox:set_text(txt_l)
+end
+
 function theme.at_screen_connect(s)
     -- Each screen has its own tag table.
     awful.tag({ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }, s, awful.layout.layouts[1])
@@ -159,11 +186,16 @@ function theme.at_screen_connect(s)
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(gears.table.join(
+        s.mytxtlayoutbox = wibox.widget.textbox(theme["layout_txt_" .. awful.layout.getname(awful.layout.get(s))])
+
+    awful.tag.attached_connect_signal(s, "property::selected", function() update_txt_layoutbox(s) end)
+    awful.tag.attached_connect_signal(s, "property::layout", function() update_txt_layoutbox(s) end)
+    s.mytxtlayoutbox:buttons(gears.table.join(
         awful.button({}, 1, function() awful.layout.inc(1) end),
+        awful.button({}, 2, function() awful.layout.set(awful.layout.layouts[1]) end),
         awful.button({}, 3, function() awful.layout.inc(-1) end)
     ))
+
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
@@ -256,11 +288,11 @@ function theme.at_screen_connect(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
+            s.mytxtlayoutbox,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
-            s.mylayoutbox,
             updates,
             cpu,
             temp,
