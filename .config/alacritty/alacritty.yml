@@ -5,7 +5,7 @@ window:
     x: 3
     y: 3
 
-  opacity: 1.0
+  opacity: 0.9
 
   title: Alacritty
 
@@ -45,7 +45,7 @@ font:
     family: JetBrains Mono
     style: Bold Italic
 
-  size: 9.0
+  size: 8.0
 
 draw_bold_text_with_bright_colors: true
 
