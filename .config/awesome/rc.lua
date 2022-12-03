@@ -56,8 +56,8 @@ end
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
-beautiful.init(gears.filesystem.get_configuration_dir() .. "informative/theme.lua")
--- beautiful.init(gears.filesystem.get_configuration_dir() .. "minimal/theme.lua")
+-- beautiful.init(gears.filesystem.get_configuration_dir() .. "informative/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "minimal/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 local terminal = "alacritty"

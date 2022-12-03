@@ -14,4 +14,7 @@ pipewire-volumeicon-launcher &
 sxhkd &
 feh --bg-fill ~/wallpapers/dark/002.jpg &
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-exec dwm
+
+# exec dwm
+# exec herbstluftwm
+exec awesome
