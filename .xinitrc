@@ -15,6 +15,13 @@ sxhkd &
 feh --bg-fill ~/wallpapers/dark/002.jpg &
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
-# exec dwm
-exec herbstluftwm
-# exec awesome
+# Default
+session=${1:-dwm}
+
+case $session in
+    dwm               ) exec dwm;;
+    awesome           ) exec awesome;;
+    hlwm              ) exec herbstluftwm;;
+    # No known session, try to run it as command
+    *                 ) exec $1;;
+esac
