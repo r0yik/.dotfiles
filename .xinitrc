@@ -9,7 +9,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 pipewire-volumeicon-launcher &
 sxhkd &
 feh --bg-fill ~/wallpapers/dark/002.jpg &
