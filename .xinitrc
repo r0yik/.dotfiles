@@ -16,12 +16,12 @@ feh --bg-fill ~/wallpapers/dark/002.jpg &
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # Default
-session=${1:-dwm}
+session=${1:-herbstluftwm}
 
 case $session in
-    dwm               ) exec dwm;;
-    awesome           ) exec awesome;;
-    hlwm              ) exec herbstluftwm;;
+    dwm                 ) exec dwm;;
+    awesome             ) exec awesome;;
+    hlwm|herbstluftwm   ) exec herbstluftwm;;
     # No known session, try to run it as command
     *                 ) exec $1;;
 esac
