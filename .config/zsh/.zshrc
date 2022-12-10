@@ -6,10 +6,6 @@ export ZDOTDIR=$HOME/.config/zsh
 # Enable colors and change prompt:
 autoload -Uz colors && colors
 
-# History in cache directory:
-HISTSIZE=100000
-SAVEHIST=100000
-
 # Completions
 autoload -U compinit && compinit -u
 zstyle ':completion:*' menu select
