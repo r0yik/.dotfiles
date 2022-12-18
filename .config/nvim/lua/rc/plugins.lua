@@ -66,7 +66,6 @@ return packer.startup(function(use)
 
     -- telescope
     use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
-    use { "nvim-telescope/telescope-file-browser.nvim" }
 
     -- status line
     use("nvim-lualine/lualine.nvim")

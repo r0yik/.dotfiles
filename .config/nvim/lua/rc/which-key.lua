@@ -51,7 +51,6 @@ local mappings = {
     E = { ":e ~/.config/nvim/init.lua<cr>", "Edit NeoVim Config" },
     f = { ":Telescope find_files<cr>", "Telescope Find Files" },
     r = { ":Telescope live_grep<cr>", "Telescope Live Grep" },
-    b = { ":Telescope file_browser<cr>", "Telescope File Browser"},
     t = {
         name = "Terminal",
         t = { ":ToggleTerm<cr>", "Split Below" },
