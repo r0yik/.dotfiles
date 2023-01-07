@@ -19,7 +19,7 @@ feh --bg-fill ~/wallpapers/dark/002.jpg &
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # Default
-session=${1:-awesome}
+session=${1:-herbstluftwm}
 
 case $session in
     awesome             ) exec awesome;;
