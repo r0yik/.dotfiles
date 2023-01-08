@@ -1,7 +1,4 @@
 #!/bin/bash
 
-sleep 2
-
 update=$(checkupdates | wc -l)
 echo "$update"
-
